@@ -23,11 +23,8 @@ function incrementarPorUno(array) {
   // Aumenta cada entero por 1
   // y devuelve el array
   // Tu código:
-  var numero = array[0];
-  for(let i = 0; i < array.length ; i++) {
-  if (numero >= 0) {
-    return array += 1; }
-}
+  
+
 }
 function agregarItemAlFinalDelArray(array, elemento) {
   // Añade el "elemento" al final del array
@@ -60,12 +57,9 @@ function arrayContiene(array, elemento) {
   // Comprueba si el elemento existe dentro de "array"
   // Devuelve "true" si está, o "false" si no está
   // Tu código:
-  let unElemento = array[0];
-  for (let i=0; i < array.length; i++) {
-  if(unElemento === array[i]) {
-  return true; }
-  else {
-    return false  }
+  buscar = array.indexOf("elemento");
+  if ((array[elemento]) === buscar) {
+    return true;
   }
 }
 function agregarNumeros(numeros) {
