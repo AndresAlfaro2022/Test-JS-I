@@ -23,9 +23,14 @@ function incrementarPorUno(array) {
   // Aumenta cada entero por 1
   // y devuelve el array
   // Tu código:
-  
+  var length = array.length;
+  for (var i = 0; i < length; i++) {
+  array[i] += 1;
+}
+  return array; 
 
 }
+   
 function agregarItemAlFinalDelArray(array, elemento) {
   // Añade el "elemento" al final del array
   // y devuelve el array
@@ -49,53 +54,68 @@ function dePalabrasAFrase(palabras) {
   // con espacios entre cada palabra
   // Ejemplo: ['Hello', 'world!'] -> 'Hello world!'
   // Tu código:
-  for (let i = 0; i < palabras.length; i++) {
-  return  "'" + palabras[i] + " " + palabras;
+  var palabranueva = ""
+  for (i = 0; i < palabras.length; i++){
+  palabranueva = palabranueva + " " + palabras[i]
   }
+  let part = palabranueva.slice(1);
+  return part;
 }
+  
 function arrayContiene(array, elemento) {
   // Comprueba si el elemento existe dentro de "array"
   // Devuelve "true" si está, o "false" si no está
   // Tu código:
-  buscar = array.indexOf("elemento");
-  if ((array[elemento]) === buscar) {
-    return true;
-  }
+    for (let i = 0; i < array.length; i++){
+      if (elemento == array[i]) {
+        return true;
+      }
+    }
+    return false;
 }
 function agregarNumeros(numeros) {
   // "array" debe ser una matriz de enteros (int/integers)
   // Suma todos los enteros y devuelve el valor
   // Tu código:
-  var array = [2,3,4]
-  
-  return (agregarNumeros(...numeros));
+let total = numeros.reduce((a, b) => a + b, 0);
+return total;
 }
 
 function promedioResultadosTest(resultadosTest) {
   // "resultadosTest" debe ser una matriz de enteros (int/integers)
   // Itera (en un bucle) los elementos del array, calcula y devuelve el promedio de puntajes
   // Tu código:
+  let total = 0;
+  for(let i=0; i < resultadosTest.length; i++){
+      total = total + resultadosTest[i]
+  }
+      return  total / resultadosTest.length
 }  
 
 function numeroMasGrande(numeros) {
   // "numeros" debe ser una matriz de enteros (int/integers)
   // Devuelve el número más grande
   // Tu código:
-  var numeros = [8,9];
-  if ((numeros[0]) > (numeros[1])) {
-    return numeros[0];
-  } else {
-    return numeros[1];
+  var maximo = numeros[0]; // ==> [1]
+  for(var i = 1; i < numeros.length; i++) {
+    if(numeros[i] > maximo) { 
+      maximo = numeros[i]; // ==> 2
+    }
   }
+  return maximo;
 }
 
 function cuentoElementos(arreglo){
   //Realiza una función que retorne la cantidad de los elementos del arreglo cuyo valor es mayor a 19.
   //Escribe tu código aquí
-  if ((arreglo.length) > (19)) {
-  return (arreglo.length);
+  let cont = [];
+  for (let i = 0; i < arreglo.length; i++) {
+    if (arreglo[i] > 19) { // Aquí es mayor a 10, no mayor o igual
+      cont.push(arreglo[i]);
+    }
   }
-}
+  return cont.length;
+ }
 
 function diaDeLaSemana(numeroDeDia) {
   //Suponga que los días de la semana se codifican como 1 = Domingo, 2 = Lunes y así sucesivamente. 
@@ -135,33 +155,26 @@ function mesesDelAño(array) {
   // "Enero", "Marzo" y "Noviembre", guardarlo en nuevo array y retornarlo.
   //Si alguno de los meses no está, devolver: "No se encontraron los meses pedidos"
   // Tu código:
-   nuevoArray = [] 
-    for (let i=0; i< array.length; i++) {
-      if (array[i]==="Enero") {
-        nuevoArray.push(array[i]); 
-      } 
-      else if (array[i]==="Marzo") {
-        nuevoArray.push(array[i]);
-      }
-      else if (array[i]==="Noviembre") {
-        nuevoArray.push(array[i]);
-        return nuevoArray;
-      }  
-      else {
-        return "No se encontraron los meses pedidos"
-      }
-
-    }
-   }
+  const arrayuno=['Marzo','Noviembre','Enero']
+  let findEnero
+  let findMarzo
+  let findNoviembre
+  array.includes('Enero')?findEnero=true:findEnero=false
+  array.includes('Marzo')?findMarzo=true:findMarzo=false
+  array.includes('Noviembre')?findNoviembre=true:findNoviembre=false;
+  return findEnero===true&&findMarzo===true&&findNoviembre===true?arrayuno:"No se encontraron los meses pedidos"
+}
+   
     
 
 function mayorACien(array) {
   //La función recibe un array con enteros entre 0 y 200. Recorrer el array y guardar en un nuevo array sólo los
   //valores mayores a 100 (no incluye el 100). Finalmente devolver el nuevo array.
   // Tu código:
+  var nuevoArray = [];
   for (let i=0; i< array.length; i++) {
     if (array[i] > 100 && array[i]< 201 && array[i] >= 0) {
-      var array = nuevoArray
+      nuevoArray.push(array[i]);
     }
   }
   return nuevoArray
